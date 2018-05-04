@@ -27,5 +27,13 @@
     5> react-router-config 静态路由配置帮助助手
 
 ### React 资料
-<a href="https://segmentfault.com/a/1190000010174260">React Router 4 简易入门</a>
-<a href="https://github.com/zhoushengmufc/iosselect">Picker</a>
+<p>
+    <a href="https://segmentfault.com/a/1190000010174260">
+        React Router 4 简易入门
+    </a>
+</p>
+<p>
+    <a href="https://github.com/zhoushengmufc/iosselect">
+        Picker
+    </a>
+</p>

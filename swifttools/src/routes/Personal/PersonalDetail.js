@@ -11,6 +11,8 @@ import 'iosselect/src/iosSelect.css'
 import './Personal.css'
 
 import  pullDownIcon from '../../images/pulldown_triangle_icon@2x.png'
+import  noDataIcon from '../../images/default_page_nodetail_icon@2x.png'
+import commissionIcon from '../../images/income_icon_green@2x.png'
 
 const oneSeasons = [
     {
@@ -38,13 +40,17 @@ class PersonalDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            noData: false,
+
             categoryName:'全部分类',
             categoryId: "1001",
             time:'全部时间',
             timeOneId: '全部时间',
             timeTwoid: '全部时间',
-            isShowLoading:true
+            isShowLoading:true,
+
+            noData: true,
+
+            dataSource: [''],
         }
     }
 
@@ -85,8 +91,10 @@ class PersonalDetail extends Component {
                 oneLevelId: this.state.timeOneId,
                 twoLevelId: this.state.timeTwoid,
                 callback: function (selectOneObj, selectTwoObj) {
+                    console.log(selectOneObj['value'])
                     this.setState({
-                        time: selectOneObj['value'] + selectTwoObj['value'],
+
+                        time: selectOneObj['value'] == '全部时间' ? selectOneObj['value'] : selectOneObj['value'] + selectTwoObj['value'],
                         timeOneId: selectOneObj['id'],
                         timeTwoid: selectTwoObj['id']
                     })
@@ -98,7 +106,21 @@ class PersonalDetail extends Component {
     contentHandler() {
         return(
             <div>{
-                this.state.noData ? <div>暂无数据</div> : <div>暂无明细记录</div>
+                this.state.noData ?
+                    <div className='personal_detail_content_cellBg'>{
+                        this.state.dataSource.map((item) => {
+                            return(
+                                <ContentCell>
+
+                                </ContentCell>
+                            );
+                        })
+                    }</div>
+                    :
+                    <div className='personal_detail_content_noData'>
+                        <img src={noDataIcon} alt="" className='personal_detail_content_noDataImg'/>
+                        <div className='personal_detail_content_noDataText'>暂无明细记录</div>
+                    </div>
             }</div>
         );
     }
@@ -127,9 +149,7 @@ class PersonalDetail extends Component {
 
                 </div>
 
-                {
-                    this.contentHandler()
-                }
+                { this.contentHandler() }
 
             </div>
         );
@@ -137,3 +157,41 @@ class PersonalDetail extends Component {
 }
 
 export default PersonalDetail;
+
+
+class ContentCell extends Component {
+
+
+
+
+    render() {
+        return(
+          <div>
+              <div className='personal_detail_content_cell'>
+                  <div className='personal_detail_content_cell_top'>
+                      <img src={commissionIcon} alt="" className='personal_detail_content_cell_topImg'/>
+                      <span className='personal_detail_content_cell_topText'>佣金收入</span>
+                      <span className='personal_detail_content_cell_topTime'>2018-04-28 11:19:23</span>
+                  </div>
+
+                  <div className='personal_detail_content_cell_Middle'>
+                      <div className='personal_detail_content_cell_MiddleLeftText'>+99.0</div>
+
+                      <div className='FR'>
+                          <div className='personal_detail_content_cell_MiddleRightTopText'>余额: 99.0元</div>
+                          <div className='personal_detail_content_cell_MiddleRightBottomText'>1.3.1版本兼容</div>
+                      </div>
+
+                      <p className='clear'></p>
+                  </div>
+              </div>
+
+              <div className='personal_detail_content_cell_bottom'>
+                  <div className='personal_detail_content_cell_bottomLine'></div>
+                  <span className="">查看任务执行详情</span>
+              </div>
+
+          </div>
+        );
+    }
+}

@@ -38,6 +38,7 @@ class PersonalDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            noData: false,
             categoryName:'全部分类',
             categoryId: "1001",
             time:'全部时间',
@@ -95,7 +96,11 @@ class PersonalDetail extends Component {
     };
 
     contentHandler() {
-
+        return(
+            <div>{
+                this.state.noData ? <div>暂无数据</div> : <div>暂无明细记录</div>
+            }</div>
+        );
     }
 
     render() {
@@ -121,6 +126,10 @@ class PersonalDetail extends Component {
                     </div>
 
                 </div>
+
+                {
+                    this.contentHandler()
+                }
 
             </div>
         );

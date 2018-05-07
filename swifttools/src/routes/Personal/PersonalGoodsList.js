@@ -1,5 +1,5 @@
 /**
- *  Created by zhangshumeng on 2018/5/2
+ *  Created by zhangshumeng on 2018/5/7
  */
 
 import React, {Component} from 'react'
@@ -7,8 +7,8 @@ import React, {Component} from 'react'
 import Picker from 'iosselect/src/iosSelect'
 import {options} from '../../config/Time'
 
-import 'iosselect/src/iosSelect.css'
 import './Personal.css'
+import 'iosselect/src/iosSelect.css'
 
 import pullDownIcon from '../../images/pulldown_triangle_icon@2x.png'
 import noDataIcon from '../../images/default_page_nodetail_icon@2x.png'
@@ -34,29 +34,25 @@ const oneSeasons = [
     },
 ];
 
-var selectedTime = ''
 
-class PersonalDetail extends Component {
+class PersonalGoodsList extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-
             categoryName:'全部分类',
             categoryId: "1001",
             time:'全部时间',
             timeOneId: '全部时间',
             timeTwoid: '全部时间',
             isShowLoading:true,
-
             noData: true,
-
             dataSource: ['', '', '', '', '', '',],
         }
     }
 
     componentWillMount() {
-        document.title = '收入明细'
+        document.title = '物品收入明细'
     }
 
     categoryOnClick(e) {
@@ -128,14 +124,10 @@ class PersonalDetail extends Component {
         return (
             <div>
                 <div className='personal_detail_bg'>
-                    <div className='personal_detail_balanceText'>我的余额(元)</div>
-                    <div>
-                        <div className='personal_detail_balance'>99.0</div>
-                        <div className='personal_detail_putforward'>提现</div>
-                    </div>
+                    <div className='personal_detail_balanceText'>我的物品（个）</div>
+                    <div className='personal_detail_balance'>15</div>
 
                     <div className='personal_detail_bottom'>
-
                         <span className='personal_detail_bottom_category' onClick={(e) => this.categoryOnClick(e)}>{this.state.categoryName}
                             <img src={pullDownIcon} alt="" className='personal_detail_bottom_dropImg'/>
                         </span>
@@ -143,52 +135,24 @@ class PersonalDetail extends Component {
                         <span className='personal_detail_bottom_time' onClick={(e) => this.timeOnClick(e)}>{this.state.time}
                             <img src={pullDownIcon} alt="" className='personal_detail_bottom_dropImg'/>
                         </span>
-
                     </div>
-
                 </div>
 
-                { this.contentHandler() }
-
+                {this.contentHandler()}
             </div>
         );
     }
 }
 
-export default PersonalDetail;
-
+export default PersonalGoodsList;
 
 class ContentCell extends Component {
 
     render() {
         return(
-          <div>
-              <div className='personal_detail_content_cell'>
-                  <div className='personal_detail_content_cell_top'>
-                      <img src={commissionIcon} alt="" className='personal_detail_content_cell_topImg'/>
-                      <span className='personal_detail_content_cell_topText'>佣金收入</span>
-                      <span className='personal_detail_content_cell_topTime'>2018-04-28 11:19:23</span>
-                  </div>
+            <div>
 
-                  <div className='personal_detail_content_cell_Middle'>
-                      <div className='personal_detail_content_cell_MiddleLeftText'>+99.0</div>
-
-                      <div className='FR'>
-                          <div className='personal_detail_content_cell_MiddleRightTopText'>余额: 99.0元</div>
-                          <div className='personal_detail_content_cell_MiddleRightBottomText'>1.3.1版本兼容</div>
-                      </div>
-
-                      <p className='clear'></p>
-                  </div>
-              </div>
-
-              <div className='personal_detail_content_cell_bottom'>
-                  <div className='personal_detail_content_cell_bottomLine'></div>
-                  <span className="personal_detail_content_cell_bottomText">查看任务执行详情</span>
-                  <img src={rightArrowIcon} alt="" className='personal_detail_content_cell_bottomRightImg'/>
-              </div>
-              <div className='personal_detail_content_cellSpacing'></div>
-          </div>
+            </div>
         );
     }
 }

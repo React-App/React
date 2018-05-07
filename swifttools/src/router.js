@@ -10,6 +10,7 @@ import HelpCenter from './routes/Personal/PersonalHelpCenter'
 import HelpCenterDetal from './routes/Personal/PersonalHelpCenterDetail'
 import RecommendReward from './routes/Personal/PersonalRecommendReward'
 import Detail from './routes/Personal/PersonalDetail'
+import GoodsList from './routes/Personal/PersonalGoodsList'
 
 const history = createBrowserHistory()
 
@@ -22,8 +23,10 @@ class RouterRoot extends Component {
                     <Route path="/LiveAudioBack" component={LiveAudioBack}/>
                     {/* 个人中心 */}
                     <Route exact path="/Personal" component={Personal}/>
-                    {/* 推荐有奖 */}
+                    {/* 收入 */}
                     <Route path="/Personal/Detail" component={Detail}/>
+                    {/* 物品库 */}
+                    <Route path="/Personal/GoodsList" component={GoodsList}/>
                     {/* 关于我们 */}
                     <Route path="/Personal/Setting/AboutMe" component={AboutMe}/>
                     {/* 帮助中心 */}

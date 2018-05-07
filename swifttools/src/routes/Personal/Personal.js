@@ -41,6 +41,13 @@ class Personal extends Component {
         }
     }
 
+    goodsListOnClick(e) {
+        e.stopPropagation()
+        if (isiOS) {
+            window.webkit.messageHandlers.GoodsList.postMessage('物品库')
+        }
+    }
+
     cellOnClick(e, content) {
         e.stopPropagation()
 
@@ -110,9 +117,9 @@ class Personal extends Component {
                             <div className='personal_userInfo_bottom_topText'>¥0.0</div>
                             <div className='personal_userInfo_bottom_bottomText'>收入</div>
                         </div>
-                        <div className='personal_userInfo_bottom_center'>
+                        <div className='personal_userInfo_bottom_center' onClick={(e) => this.goodsListOnClick(e)}>
                             <div className='personal_userInfo_bottom_topText'>0</div>
-                            <div className='personal_userInfo_bottom_bottomText'>物品裤</div>
+                            <div className='personal_userInfo_bottom_bottomText'>物品库</div>
                         </div>
 
                         <div className='personal_userInfo_bottom_right'>

@@ -328,12 +328,24 @@ a:link {
     height: .02rem;
 }
 
-/*.personal_detail_content_cell_bottom {*/
-    /**/
-/*}*/
+.personal_detail_content_cell_bottomText {
+    font-size: 12px;
+    line-height: 41px;
+    color: #212121;
+    vertical-align: middle;
+}
 
+.personal_detail_content_cell_bottomRightImg {
+    width: 8px;
+    height: 14px;
+    float: right;
+    margin-top: 13px;
+}
 
-
+.personal_detail_content_cellSpacing {
+    background-color: #EEEEEE;
+    height: 10px;
+}
 
 /************************************* 明细 CSS 结束 *************************************/
 

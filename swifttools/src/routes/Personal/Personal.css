@@ -349,6 +349,72 @@ a:link {
 
 /************************************* 明细 CSS 结束 *************************************/
 
+/************************************* 物品明细 CSS 开始 *************************************/
+
+.personal_goods_cell_top {
+    margin-top: 10px;
+    position: relative;
+}
+
+.personal_goods_cell_content {
+    position: relative;
+    text-align: right;
+    margin-left: 8px;
+}
+
+.personal_goods_cell_content_title {
+    margin-top: 11px;
+    line-height: 18px;
+    color: #555555;
+    font-size: 13px;
+}
+
+.personal_goods_cell_content_detail {
+    margin-top: 5px;
+    line-height: 16px;
+    color: #888888;
+    font-size: 11px;
+    margin-right: 10px;
+}
+
+.personal_goods_cell_content_stateSuper {
+    text-align: right;
+    margin-top: 8px;
+    margin-bottom: 19px;
+}
+
+.personal_goods_cell_content_stateInfo {
+    color: #555555;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.personal_goods_cell_content_state_bottom {
+    color: #888888;
+    line-height: 18px;
+    font-size: 13px;
+    padding-bottom: 13px;
+}
+
+.personal_goods_cell_content_state_shipments {
+    color: red;
+}
+
+.personal_goods_cell_content_state {
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.personal_goods_cell_content_img {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    left: -10px;
+    top: 0;
+}
+
+/************************************* 物品明细 CSS 结束 *************************************/
+
 /************************************* 关于我们 CSS 开始 *************************************/
 .personal_about_div {
     position: absolute;

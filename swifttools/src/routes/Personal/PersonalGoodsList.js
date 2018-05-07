@@ -12,8 +12,8 @@ import 'iosselect/src/iosSelect.css'
 
 import pullDownIcon from '../../images/pulldown_triangle_icon@2x.png'
 import noDataIcon from '../../images/default_page_nodetail_icon@2x.png'
-import commissionIcon from '../../images/income_icon_green@2x.png'
-import rightArrowIcon from '../../images/Shape@2x.png'
+import qqq from '../../images/qqq.jpg'
+import  incomeGreenIcon from '../../images/income_icon_green.png'
 
 const oneSeasons = [
     {
@@ -151,7 +151,25 @@ class ContentCell extends Component {
     render() {
         return(
             <div>
+                <div className='personal_detail_content_cell'>
+                    <div className='personal_detail_content_cell_top'>
+                        <img src={incomeGreenIcon} alt="" className='personal_detail_content_cell_topImg'/>
+                        <span className='personal_detail_content_cell_topText'>领样</span>
+                        <span className='personal_detail_content_cell_topTime'>2018-04-28 11:19:23</span>
+                    </div>
 
+                    <div className='personal_goods_cell_content'>
+                        <div className='personal_goods_cell_content_title'>库存测试2222-1</div>
+                        <div className='personal_goods_cell_content_detail'>市场价格：20.0元 实付：0元 规格：200ML x 1</div>
+                        <div className='personal_goods_cell_content_stateSuper'>
+                            <span className='personal_goods_cell_content_stateInfo'>0.1元</span>
+                            <span className='personal_goods_cell_content_state personal_goods_cell_content_state_shipments'>发货被拒</span>
+                        </div>
+                        <div className='personal_goods_cell_content_state_bottom'>任务：库存测试121212 ></div>
+                        <img src={qqq} alt="物品" className='personal_goods_cell_content_img'/>
+                    </div>
+                </div>
+                <div className='personal_detail_content_cellSpacing'></div>
             </div>
         );
     }

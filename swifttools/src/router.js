@@ -11,6 +11,8 @@ import HelpCenterDetal from './routes/Personal/PersonalHelpCenterDetail'
 import RecommendReward from './routes/Personal/PersonalRecommendReward'
 import Detail from './routes/Personal/PersonalDetail'
 import GoodsList from './routes/Personal/PersonalGoodsList'
+import IntegralList from './routes/Personal/PersonalIntegralList'
+import Auth from './routes/Personal/PersonalAuth'
 
 const history = createBrowserHistory()
 
@@ -27,14 +29,18 @@ class RouterRoot extends Component {
                     <Route path="/Personal/Detail" component={Detail}/>
                     {/* 物品库 */}
                     <Route path="/Personal/GoodsList" component={GoodsList}/>
+                    {/* 积分 */}
+                    <Route path="/Personal/IntegralList" component={IntegralList}/>
+                    {/* 实名认证 */}
+                    <Route path="/Personal/Auth" component={Auth}/>
                     {/* 关于我们 */}
                     <Route path="/Personal/Setting/AboutMe" component={AboutMe}/>
                     {/* 帮助中心 */}
-                    <Route path="/Personal/Setting/HelpCenter" component={HelpCenter}/>
+                    <Route path="/Personal/HelpCenter" component={HelpCenter}/>
                     {/* 帮助中心 详情 */}
                     <Route path="/HelpCenterDetail/:title" component={HelpCenterDetal}/>
                     {/* 推荐有奖 */}
-                    <Route path="/Personal/Setting/RecommendReward" component={RecommendReward}/>
+                    <Route path="/Personal/RecommendReward" component={RecommendReward}/>
                 </div>
             </Router>
         );

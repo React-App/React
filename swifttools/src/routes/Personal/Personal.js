@@ -48,6 +48,13 @@ class Personal extends Component {
         }
     }
 
+    integralList(e) {
+        e.stopPropagation()
+        if (isiOS) {
+            window.webkit.messageHandlers.IntegralList.postMessage('积分')
+        }
+    }
+
     cellOnClick(e, content) {
         e.stopPropagation()
 
@@ -59,17 +66,17 @@ class Personal extends Component {
                 break;
             case '绑定社交平台账户' :
                 if (isiOS) {
-                    window.webkit.messageHandlers.BindingSocialPlatform.postMessage('绑定社交平台账户')
+                    // window.webkit.messageHandlers.BindingSocialPlatform.postMessage('绑定社交平台账户')
                 }
                 break;
             case '完善个人资料' :
                 if (isiOS) {
-                    window.webkit.messageHandlers.PerfectInformation.postMessage('完善个人资料')
+                    // window.webkit.messageHandlers.PerfectInformation.postMessage('完善个人资料')
                 }
                 break;
             case '地址管理' :
                 if (isiOS) {
-                    window.webkit.messageHandlers.AddressManage.postMessage('地址管理')
+                    // window.webkit.messageHandlers.AddressManage.postMessage('地址管理')
                 }
                 break;
             case '推荐有奖' :
@@ -84,7 +91,7 @@ class Personal extends Component {
                 break;
             case '设置' :
                 if (isiOS) {
-                    window.webkit.messageHandlers.Setting.postMessage('设置')
+                    // window.webkit.messageHandlers.Setting.postMessage('设置')
                 }
                 break;
             default:
@@ -122,7 +129,7 @@ class Personal extends Component {
                             <div className='personal_userInfo_bottom_bottomText'>物品库</div>
                         </div>
 
-                        <div className='personal_userInfo_bottom_right'>
+                        <div className='personal_userInfo_bottom_right' onClick={(e) => this.integralList(e)}>
                             <div className='personal_userInfo_bottom_topText'>0</div>
                             <div className='personal_userInfo_bottom_bottomText'>积分</div>
                         </div>

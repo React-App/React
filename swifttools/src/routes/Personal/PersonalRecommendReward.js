@@ -15,7 +15,7 @@ class PersonalRecommendReward extends Component {
     rewardClick(e) {
         e.stopPropagation()
         if (isiOS) {
-            window.webkit.messageHandlers.RewardClick.postMessage("邀请好友")
+            // window.webkit.messageHandlers.RewardClick.postMessage("邀请好友")
         }
     }
 

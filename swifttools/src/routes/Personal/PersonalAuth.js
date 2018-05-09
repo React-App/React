@@ -37,7 +37,7 @@ class PersonalAuth extends Component {
                     <Tabs tabs={tabs}
                           initalPage={'t2'}
                           renderTabBar={this.renderTabBar}
-                          tabBarUnderlineStyle={}
+                          // tabBarUnderlineStyle={}
                     >
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
                             Content of first tab

@@ -37,3 +37,8 @@
         Picker
     </a>
 </p>
+<p>
+    <a href="https://segmentfault.com/a/1190000005863630">
+    React.createClass和extends Component的区别
+    </a>
+</p>

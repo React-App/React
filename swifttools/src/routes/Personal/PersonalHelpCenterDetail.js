@@ -17,7 +17,7 @@ class PersonalHelpCenterDetail extends Component {
     }
 
     componentWillMount() {
-
+        document.title = this.props.match.params.title
     }
 
     handelContent(desc) {

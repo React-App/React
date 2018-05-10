@@ -17,6 +17,11 @@ export {
 
 let POST = function(options) {
 
+    options['version'] = '4.0.5'
+    options['deviceType'] = '3'
+
+    console.log(options)
+
     return new Promise(function (success, file) {
 
         Request(baseUrl, options,'POST')

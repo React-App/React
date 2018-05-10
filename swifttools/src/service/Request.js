@@ -32,6 +32,9 @@ Request = function(url, formData, method = 'GET') {
         }
     }
 
+    console.log("ReuqestURL: " + url)
+    console.log("Parameter: " + searchStr)
+
     return new Promise(function (resolve, reject) {
         fetch(url, initObj)
             .then((response) => {
@@ -43,7 +46,7 @@ Request = function(url, formData, method = 'GET') {
                 }
             })
             .then((response) => {
-                console.log(response)
+
                 resolve(response);
             })
             .catch((err)=> {

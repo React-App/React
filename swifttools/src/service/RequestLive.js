@@ -8,7 +8,8 @@ import {POST} from './BaseRequest'
 
 export {
     requestLiveHotLiveList,
-    requestLiveDetail
+    requestLiveRecLiveList,
+    requestLiveDetail,
 }
 
 // 查询热门直播列表
@@ -32,7 +33,29 @@ let requestLiveHotLiveList = function (accessToken = '', user_id = '', page = '1
                 fileComplete(file)
             })
     })
+}
 
+// 查询推荐直播列表
+let requestLiveRecLiveList = function (accessToken = '', user_id = '', page = '1') {
+    let options = {
+        accessToken,
+        user_id,
+        page,
+        requestCode: '80003',
+        limit: '10',
+        q_t: '2',
+        is_rec: '1'
+    }
+
+    return new Promise(function (successComplete, fileComplete) {
+        POST(options)
+            .then((success) => {
+                successComplete(success)
+            })
+            .catch((file) => {
+                fileComplete(file)
+            })
+    })
 }
 
 // 直播详情

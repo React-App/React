@@ -15,6 +15,7 @@ import IntegralList from './routes/Personal/PersonalIntegralList'
 import Auth from './routes/Personal/PersonalAuth'
 import LiveDetail from './routes/Live/LiveDetail'
 import HotLiveList from './routes/Live/LiveHotLiveList'
+import RecLiveList from './routes/Live/LiveRecLiveList'
 
 const history = createBrowserHistory()
 
@@ -47,6 +48,8 @@ class RouterRoot extends Component {
                     <Route path="/Live/LiveDetail/:accessToken/:user_id/:id" component={LiveDetail}/>
                     {/* 查询热门直播列表 */}
                     <Route path="/Live/HotLiveList/:accessToken/:user_id" component={HotLiveList}/>
+                    {/* 查询推荐直播列表 */}
+                    <Route path="/Live/RecLiveList/:accessToken/:user_id" component={RecLiveList}/>
                 </div>
             </Router>
         );

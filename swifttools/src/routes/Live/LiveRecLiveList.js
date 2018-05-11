@@ -1,18 +1,18 @@
 /**
- *  Created by zhangshumeng on 2018/5/10
+ *  Created by zhangshumeng on 2018/5/11
  */
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
-import { requestLiveHotLiveList } from '../../service/RequestLive'
-import LiveListCell from './LiveListCell'
+import LiveListCell from '../../routes/Live/LiveListCell'
+import { requestLiveRecLiveList } from '../../service/RequestLive'
 
 import ReactPullLoad,{ STATS } from 'react-pullload'
 import 'react-pullload/dist/ReactPullLoad.css'
 
 var page = 1;
 
-class LiveHotLiveList extends Component {
+class LiveRecLiveList extends Component {
 
     constructor(props) {
         super(props);
@@ -24,12 +24,12 @@ class LiveHotLiveList extends Component {
     }
 
     componentWillMount() {
-        document.title = '热门'
-        this.requestLiveHotLiveListData()
+        document.title = '推荐'
+        this.requestLiveRecLiveListData()
     }
 
-    requestLiveHotLiveListData() {
-        requestLiveHotLiveList(this.props.match.params.accessToken, this.props.match.params.user_id, page)
+    requestLiveRecLiveListData() {
+        requestLiveRecLiveList(this.props.match.params.accessToken, this.props.match.params.user_id, page)
             .then((success) => {
                 if (page === 1) {
                     this.setState({
@@ -73,10 +73,10 @@ class LiveHotLiveList extends Component {
 
         if(action === STATS.refreshing){//刷新
             page = 1
-            this.requestLiveHotLiveListData()
+            this.requestLiveRecLiveListData()
         } else if(action === STATS.loading){//加载更多
             page++
-            this.requestLiveHotLiveListData()
+            this.requestLiveRecLiveListData()
         } else{
             //DO NOT modify below code
             this.setState({
@@ -85,8 +85,8 @@ class LiveHotLiveList extends Component {
         }
     }
 
-    render() {
 
+    render() {
         return (
             <div>
                 <ReactPullLoad
@@ -102,10 +102,9 @@ class LiveHotLiveList extends Component {
                         user_id={this.props.match.params.user_id}
                     />
                 </ReactPullLoad>
-
             </div>
         );
     }
 }
 
-export default LiveHotLiveList;
+export default LiveRecLiveList;

@@ -2,7 +2,7 @@
  *  Created by zhangshumeng on 2018/5/8
  */
 
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 import 'whatwg-fetch'
 

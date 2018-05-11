@@ -2,9 +2,9 @@
  *  Created by zhangshumeng on 2018/5/10
  */
 
-import React, {Component} from 'react'
-import {dateFormat} from '../../config/Tools'
-
+import React, { Component } from 'react'
+import {dateFormat, isiOS} from '../../config/Tools'
+import {requestLiveDetail} from "../../service/RequestLive"
 
 import './LiveList.css'
 
@@ -65,13 +65,73 @@ class LiveListCell extends Component {
         }
     }
 
+    cellOnClick(e, index) {
+        let model = this.props.dataArray[index]
+
+        this.reuqestLiveDetailData(model.id)
+            .then((success) => {
+
+                switch (success.state) {
+                    case 3:
+                        if (isiOS) {
+                            window.webkit.messageHandlers.LiveAudioBack.postMessage(success)
+                        } else {
+
+                        }
+                        break;
+                    case 1:
+                    case 2:
+                        switch (success.is_melive) {
+                            case 1:
+                                if (isiOS) {
+                                    window.webkit.messageHandlers.LivePersonalRoom.postMessage(success)
+                                } else {
+
+                                }
+                                break;
+                            case 2:
+                                if (isiOS) {
+                                    window.webkit.messageHandlers.LiveOtherPersonalRoom.postMessage(success)
+                                } else {
+
+                                }
+                                break;
+                            default:
+                                console.log('错误的is_melive')
+                                break
+                        }
+                        break;
+                    default:
+                        console.log('错误的state')
+                        break;
+                }
+            })
+            .catch((file) => {
+                return false
+            })
+    }
+
+
+    reuqestLiveDetailData = function (dataId = '') {
+        const _this = this
+        return new Promise(function (successComplete, fileComplete) {
+            requestLiveDetail(_this.props.accessToken, dataId, _this.props.user_id)
+                .then((success) => {
+                    successComplete(success)
+                })
+                .catch((file) => {
+                    console('请求失败：' + file)
+                })
+        })
+    }
+
     render() {
         return(
             <div className='liveList_bg'>
                 <div className='liveList_cell'>{
                     this.props.dataArray.map((content, index) => {
                         return(
-                            <div className='liveList_cell_items' key={index}>
+                            <div className='liveList_cell_items' key={index}  onClick={(e) => this.cellOnClick(e, index)}>
                                 <div className='liveList_cell_item'>
                                     <img src={content.live_img_path} alt="" className='liveList_cell_item_img'/>
                                     <div className='liveList_cell_item_statsBg'>

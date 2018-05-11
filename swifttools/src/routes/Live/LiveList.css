@@ -1,6 +1,13 @@
+/**
+ *  Created by zhangshumeng on 2018/5/10
+ */
 
 .liveList_bg {
     background-color: white;
+}
+
+.liveList {
+    position: fixed;
 }
 
 .liveList_cell {
@@ -8,7 +15,6 @@
     flex-wrap: wrap;
     margin-left: 18px;
     margin-right: 18px;
-
 }
 
 .liveList_cell_items {

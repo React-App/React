@@ -4,7 +4,7 @@
 
 import React, {Component} from 'react'
 
-import {POST} from  './BaseRequest'
+import {POST} from './BaseRequest'
 
 export {
     requestLiveHotLiveList,

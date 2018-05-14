@@ -4,7 +4,7 @@
 
 import React, { Component } from 'react'
 
-import { requestLiveHotLiveList } from '../../service/RequestLive'
+import { requestLiveHotLiveList } from '../../../service/RequestLive'
 import LiveListCell from './LiveListCell'
 
 import ReactPullLoad,{ STATS } from 'react-pullload'

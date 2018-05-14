@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 
-import './LiveAudioBack.css'
+import '../Css/LiveAudioBack.css'
 
-import appIcon from '../../images/logo_icon_my_bg copy@3x.png'
+import appIcon from '../../../images/logo_icon_my_bg copy@3x.png'
 
 class LiveAudioBack extends Component {
 

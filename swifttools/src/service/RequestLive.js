@@ -2,9 +2,9 @@
  *  Created by zhangshumeng on 2018/5/8
  */
 
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
-import {POST} from './BaseRequest'
+import { POST } from './BaseRequest'
 
 export {
     requestLiveHotLiveList,

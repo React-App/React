@@ -3,15 +3,15 @@
  */
 
 import React, { Component } from 'react'
-import {dateFormat, isiOS} from '../../config/Tools'
-import {requestLiveDetail} from "../../service/RequestLive"
+import {dateFormat, isiOS} from '../../../config/Tools'
+import {requestLiveDetail} from "../../../service/RequestLive"
 
-import './LiveList.css'
+import '../Css/LiveList.css'
 
-import default_label_live from '../../images/Live/default_label_live_gif.gif'
-import default_label_tomorrow from '../../images/Live/default_label_tomorrow@3x.png'
-import default_label_yestday from '../../images/Live/default_label_yestday@3x.png'
-import default_label_call from '../../images/Live/default_label_call@3x.png'
+import default_label_live from '../../../images/Live/default_label_live_gif.gif'
+import default_label_tomorrow from '../../../images/Live/default_label_tomorrow@3x.png'
+import default_label_yestday from '../../../images/Live/default_label_yestday@3x.png'
+import default_label_call from '../../../images/Live/default_label_call@3x.png'
 
 
 /*

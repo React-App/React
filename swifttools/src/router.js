@@ -3,7 +3,7 @@ import {Router, Route} from 'react-router'
 import createBrowserHistory from 'history/createBrowserHistory'
 
 import App from './routes/App/App'
-import LiveAudioBack from './routes/Live/LiveAudioBack'
+import LiveAudioBack from './routes/Live/JS/LiveAudioBack'
 import Personal from './routes/Personal/Personal'
 import AboutMe from './routes/Personal/PersonalAboutme'
 import HelpCenter from './routes/Personal/PersonalHelpCenter'
@@ -13,9 +13,10 @@ import Detail from './routes/Personal/PersonalDetail'
 import GoodsList from './routes/Personal/PersonalGoodsList'
 import IntegralList from './routes/Personal/PersonalIntegralList'
 import Auth from './routes/Personal/PersonalAuth'
-import LiveDetail from './routes/Live/LiveDetail'
-import HotLiveList from './routes/Live/LiveHotLiveList'
-import RecLiveList from './routes/Live/LiveRecLiveList'
+import LiveDetail from './routes/Live/JS/LiveDetail'
+import HotLiveList from './routes/Live/JS/LiveHotLiveList'
+import RecLiveList from './routes/Live/JS/LiveRecLiveList'
+import Connection from './routes/Home/JS/Connection'
 
 const history = createBrowserHistory()
 
@@ -50,6 +51,8 @@ class RouterRoot extends Component {
                     <Route path="/Live/HotLiveList/:accessToken/:user_id" component={HotLiveList}/>
                     {/* 查询推荐直播列表 */}
                     <Route path="/Live/RecLiveList/:accessToken/:user_id" component={RecLiveList}/>
+                    {/* 人脉 */}
+                    <Route path="/Home/Connection/:accessToken/:user_id" component={Connection}/>
                 </div>
             </Router>
         );

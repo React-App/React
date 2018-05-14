@@ -4,8 +4,8 @@
 
 import React, {Component} from 'react'
 
-import LiveListCell from '../../routes/Live/LiveListCell'
-import { requestLiveRecLiveList } from '../../service/RequestLive'
+import LiveListCell from './LiveListCell'
+import { requestLiveRecLiveList } from '../../../service/RequestLive'
 
 import ReactPullLoad,{ STATS } from 'react-pullload'
 import 'react-pullload/dist/ReactPullLoad.css'

@@ -37,22 +37,57 @@ class PersonalCell extends Component {
 
     isHidLiveAuthState() {
         if (this.props.isliveAuthState) {
-            return <div className='personalCell_bg_right_liveAuthState'>直播认证用户</div>
+            return <div className='personalCell_bg_right_liveAuthState'>{this.liveStateHandler()}</div>
         }
         return null;
+    }
+
+    identityName() {
+        if (this.props.isliveAuthState) {
+            if (this.props.object.data_state === '1') {
+                return '认证用户'
+            } else {
+                if (this.props.object.type === '0') {
+                    return '游客'
+                } else {
+                    return '普通用户'
+                }
+            }
+        } else {
+            return this.props.object.company_profile
+        }
+    }
+
+    liveStateHandler() {
+        switch (this.props.object.data_state) {
+            case '1':
+                if (this.props.object.auth_state === '2') {
+                    return "直播认证中"
+                } else if (this.props.object.auth_state === '3') {
+                    return "直播已认证"
+                } else {
+                    return "已认证"
+                }
+            case '2':
+                return '未认证'
+            case '3':
+                return '认证中'
+            default:
+                return '未知状态'
+        }
     }
 
     render() {
         return (
             <div className='personalCell'>
                 <div className='personalCell_bg'>
-                    <img src={this.props.object.head_img} alt="" className='personalCell_bg_userImg'/>
+                    <img src={!this.props.object.head_img ? defaultUserIcon : this.props.object.head_img} alt="" className='personalCell_bg_userImg'/>
                     <div className='personalCell_bg_right'>
                         <div className='personalCell_bg_right_nameBg'>
                             <div className='personalCell_bg_right_userName'>{this.userNameHandler()}</div>
                             { this.isHidLiveAuthState() }
                         </div>
-                        <div className='personalCell_bg_right_org'>{this.props.object.company_profile}</div>
+                        <div className='personalCell_bg_right_org'>{this.identityName()}</div>
                     </div>
                 </div>
                 { this.isFollowBtn() }

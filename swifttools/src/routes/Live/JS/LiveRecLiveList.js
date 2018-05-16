@@ -46,8 +46,6 @@ class LiveRecLiveList extends Component {
                     dataSource: this.state.dataArray,
                     action: page === 1 ? STATS.refreshed : STATS.reset
                 })
-
-                console.log(this.state.dataSource)
             })
             .catch((file) => {
                 console.log('请求失败：' + file)

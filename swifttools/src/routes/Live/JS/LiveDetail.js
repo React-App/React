@@ -5,8 +5,9 @@
 import React, {Component} from 'react'
 
 import {requestLiveDetail} from "../../../service/RequestLive";
-import { ActivityIndicator } from 'antd-mobile/lib/activity-indicator';
-import 'antd-mobile/lib/activity-indicator/style/css'
+import { Toast } from 'antd-mobile';
+
+import 'antd-mobile/lib/toast/style/css';
 
 import addFollow from '../../../images/live_detail_onekeyAttention@3x.png'
 import {isiOS} from "../../../config/Tools";
@@ -18,7 +19,7 @@ class LiveDetail extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            object: {}
+            object: {},
         }
     }
 
@@ -30,16 +31,17 @@ class LiveDetail extends Component {
     }
 
     requestLiveDetailData() {
-
+        Toast.loading('加载中...', 0)
         requestLiveDetail(this.props.match.params.accessToken, this.props.match.params.id, this.props.match.params.user_id)
             .then((object) => {
-
+                Toast.hide()
                 this.setState({
-                    object: object
+                    object: object,
                 })
             })
             .catch((file) => {
-                console.log(file)
+                Toast.hide()
+                Toast.fail('网络异常', 1.5);
             })
     }
 

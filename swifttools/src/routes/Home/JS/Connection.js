@@ -5,11 +5,10 @@
 import React, {Component} from 'react'
 
 import { requestPersonalCenterDetail } from '../../../service/RequestPersonal'
-import { requestInterestPersonal } from '../../../service/RequestHome'
-import { requestAnalystList } from '../../../service/RequestHome'
+import { requestInterestPersonal, requestAnalystList } from '../../../service/RequestHome'
 import PersonalCell from '../../Public/JS/PersonalCell'
 import BehaviorCell from '../../Public/JS/BehaviorCell'
-import SectionView from "../../Public/JS/SectionView"
+import SectionView from '../../Public/JS/SectionView'
 import InterestPersonalCell from '../../Public/JS/InterestPersonalCell'
 
 import '../Css/Connection.css'
@@ -33,17 +32,18 @@ class Connection extends Component {
         this.requestCenterDetailData()
         this.requestInterestPersonalData()
         this.requestAnalystData()
+
     }
 
     requestCenterDetailData() {
         requestPersonalCenterDetail(this.props.match.params.accessToken, this.props.match.params.user_id)
             .then((success) => {
                 this.setState({
-                    personalData: success
+                    personalData: success,
                 })
             })
             .catch((file) => {
-                console.log(file)
+                console.log('请求失败：' + file)
             })
     }
 
@@ -51,11 +51,11 @@ class Connection extends Component {
         requestInterestPersonal(this.props.match.params.accessToken, this.props.match.params.user_id)
             .then((success) => {
                 this.setState({
-                    interestPersonalData: success
+                    interestPersonalData: success,
                 })
             })
             .catch((file) => {
-                console.log(file)
+                console.log('请求失败：' + file)
             })
     }
 
@@ -63,15 +63,13 @@ class Connection extends Component {
         requestAnalystList(this.props.match.params.accessToken, this.props.match.params.user_id, '1')
             .then((success) => {
                 this.setState({
-                    analystData: success
+                    analystData: success,
                 })
-                console.log(success)
             })
             .catch((file) => {
-                console.log(file)
+                console.log('请求失败：' + file)
             })
     }
-
 
     render() {
         return (
@@ -79,14 +77,18 @@ class Connection extends Component {
                 <PersonalCell object={this.state.personalData} />
                 <BehaviorCell object={this.state.personalData} />
 
-                <SectionView leftTitle={'可能感兴趣的人'} rightImg={rightRenew} />
+                <SectionView leftTitle={'可能感兴趣的人'} rightImg={rightRenew} sectionCallback={(e) => {
+                    this.requestInterestPersonalData()
+                }}/>
                 <div className='connection_interestPersonalCell'>
                     <InterestPersonalCell dataSource={this.state.interestPersonalData}/>
                 </div>
 
-                <SectionView leftTitle={'分析师'} />
+                <SectionView leftTitle={'分析师'} sectionCallback={(e) => {
+                    console.log('分析师')
+                }}/>
                 <div className='connection_interestPersonalCell'>
-                    <InterestPersonalCell dataSource={this.state.analystData} isAnalyst={true}/>
+                    <InterestPersonalCell dataSource={this.state.analystData} isAnalyst={true} />
                 </div>
             </div>
         );

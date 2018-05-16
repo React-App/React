@@ -7,11 +7,11 @@ import React, { Component } from 'react'
 import '../Css/SectionView.css'
 
 import rightArrow from '../../../images/Default/default_arrow_right@3x.png'
-import rightRenew from '../../../images/Default/default_arrow_renew@3x.png'
 
 /*
   leftTitle: 左边的标题
   rightImg: 右边的图片
+  sectionCallback: 点击事件回调
  */
 
 class SectionView extends Component {
@@ -25,9 +25,17 @@ class SectionView extends Component {
 
     }
 
+    sectionViewClick(e) {
+
+        if (this.props.sectionCallback) {
+            this.props.sectionCallback(e)
+        }
+    }
+
+
     render() {
         return (
-            <div className='sectionView'>
+            <div className='sectionView' onClick={(e) => this.sectionViewClick(e)}>
                 <div className='sectionView_bg'>
                     <div className='sectionView_bg_leftTitle'>{!this.props.leftTitle ? '暂无数据' : this.props.leftTitle}</div>
                 </div>

@@ -47,7 +47,6 @@ class LiveHotLiveList extends Component {
                     action: page === 1 ? STATS.refreshed : STATS.reset
                 })
 
-                console.log(this.state.dataSource)
             })
             .catch((file) => {
                 console.log('请求失败：' + file)
@@ -94,7 +93,7 @@ class LiveHotLiveList extends Component {
                     handleAction={this.handleAction}
 
                     distanceBottom={10}
-                    downEnough={100}
+                    downEnough={60}
                 >
                     <LiveListCell
                         dataArray={this.state.dataSource}
